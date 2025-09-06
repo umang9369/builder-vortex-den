@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="mt-16 border-t border-border bg-gradient-to-b from-transparent to-muted/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid gap-10 md:grid-cols-2">
         <div>
-          <h3 className="text-2xl font-bold text-primary">किसानAI</h3>
+          <h3 className="text-2xl font-bold text-primary">Kissan</h3>
           <p className="mt-2 text-muted-foreground">हिंदी में आपकी खेती का AI सहायक — आवाज़ और फोटो से पूछें, तुरंत जवाब पाएं।</p>
           <div className="mt-4 flex gap-3">
             <a aria-label="Facebook" href="#" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border hover:bg-muted/50">
@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-border py-4 text-center text-xs text-muted-foreground">© {new Date().getFullYear()} KissanAI</div>
+      <div className="border-t border-border py-4 text-center text-xs text-muted-foreground">© {new Date().getFullYear()} Kissan</div>
     </footer>
   );
 }
