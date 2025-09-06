@@ -129,8 +129,8 @@ export default function ComparisonSlider() {
                 <h3 className="mt-3 text-2xl font-bold">बोलकर पूछें</h3>
                 <ul className="mt-2 space-y-1 text-white/90 text-sm sm:text-base">
                   <li>• आज का मौसम कैसा है?</li>
-                  <li>• गेहूं का भाव क्या है?</li>
-                  <li>• खाद कब ड��लना चाहिए?</li>
+                  <li>• गेहूं क�� भाव क्या है?</li>
+                  <li>• खाद कब डालना चाहिए?</li>
                 </ul>
               </div>
             </div>
@@ -153,7 +153,7 @@ export default function ComparisonSlider() {
               </button>
               <h3 className="mt-3 text-2xl font-bold">तस्वीर भेजें</h3>
               <ul className="mt-2 space-y-1 text-white/90 text-sm sm:text-base">
-                <li>• पत्तियों की फोटो ख���ंचे</li>
+                <li>• पत्तियों की फोटो खींचे</li>
                 <li>• तुरंत बीमारी की पहचान</li>
                 <li>• इलाज के तरीके जानें</li>
               </ul>
@@ -202,13 +202,22 @@ export default function ComparisonSlider() {
             ) : (
               <p className="text-sm text-muted-foreground">रिकॉर्डिंग सेव होने के बाद आप सुन सकेंगे।</p>
             )}
+            {!supportsAudioRecording && (
+              <div className="grid gap-2">
+                <p className="text-xs text-destructive-foreground/90">यह ब्राउज़र ऑडियो रिकॉर्डिंग सपोर्ट नहीं करता। कृपया नवीनतम Chrome/Edge का उपयोग करें या ऑडियो फ़ाइल अपलोड करें।</p>
+                <input type="file" accept="audio/*" onChange={(e) => {
+                  const f = e.target.files?.[0];
+                  if (f) setAudioUrl(URL.createObjectURL(f));
+                }} />
+              </div>
+            )}
           </div>
           <DialogFooter className="flex items-center gap-2">
-            {!recording ? (
+            {supportsAudioRecording && (!recording ? (
               <Button onClick={startRecording} className="bg-primary hover:bg-secondary">रिकॉर्ड शुरू करें</Button>
             ) : (
               <Button onClick={stopRecording} variant="destructive">रिकॉर्ड बंद करें</Button>
-            )}
+            ))}
             <Button variant="outline" onClick={() => setMicOpen(false)}>बंद करें</Button>
           </DialogFooter>
         </DialogContent>
