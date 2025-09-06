@@ -5,7 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const nav = [
   { to: "/prices", label: "फसल की कीमतें" },
-  { to: "/weather", label: "मौसम की जानकारी" },
+  { to: "/weather", label: "मौसम की जान��ारी" },
   { to: "/schemes", label: "सरकारी योजनाएं" },
   { to: "/advice", label: "कृषि सलाह" },
 ];
@@ -17,7 +17,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
         <Link to="/" className="inline-flex items-center gap-2">
           <div className="h-8 w-8 rounded-md bg-gradient-to-br from-primary to-secondary shadow-md" aria-hidden />
-          <span className="text-xl font-extrabold tracking-tight text-primary">KissanAI</span>
+          <span className="text-xl font-extrabold tracking-tight text-primary">Kissan</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {nav.map((item) => (
