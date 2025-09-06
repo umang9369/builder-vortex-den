@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { Mic, Camera } from "lucide-react";
 
-const LEFT_URL = "https://images.pexels.com/photos/18925493/pexels-photo-18925493.jpeg"; // smartphone in orchard
+const LEFT_URL = "https://cdn.builder.io/api/v1/image/assets%2F823f55bf46824ad3a2e7751fa8fe2b67%2F6037ea33a0c94512965ad23e1717c9bc?format=webp&width=800"; // farmer with tablet
 const RIGHT_URL = "https://images.pexels.com/photos/2589457/pexels-photo-2589457.jpeg"; // rice close-up
 
 export default function ComparisonSlider() {
