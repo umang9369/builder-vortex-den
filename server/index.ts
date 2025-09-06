@@ -19,5 +19,8 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
+  // Simple AI chat endpoint
+  app.post("/api/chat", (await import("./routes/chat")).handleChat);
+
   return app;
 }
