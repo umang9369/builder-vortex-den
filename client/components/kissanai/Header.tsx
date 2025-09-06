@@ -3,9 +3,11 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
+const LOGO_URL = "https://cdn.builder.io/api/v1/image/assets%2F823f55bf46824ad3a2e7751fa8fe2b67%2F73baba9a7b7b43458e9b2d2dd4724e46?format=webp&width=800";
+
 const nav = [
   { to: "/prices", label: "फसल की कीमतें" },
-  { to: "/weather", label: "मौसम की जान��ारी" },
+  { to: "/weather", label: "मौसम की जानकारी" },
   { to: "/schemes", label: "सरकारी योजनाएं" },
   { to: "/advice", label: "कृषि सलाह" },
 ];
@@ -16,7 +18,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-black/30 border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
         <Link to="/" className="inline-flex items-center gap-2">
-          <div className="h-8 w-8 rounded-md bg-gradient-to-br from-primary to-secondary shadow-md" aria-hidden />
+          <img src={LOGO_URL} alt="Kissan logo" className="h-8 w-8 rounded-md object-contain" width={32} height={32} />
           <span className="text-xl font-extrabold tracking-tight text-primary">Kissan</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
