@@ -29,7 +29,7 @@ export default function Hero() {
         <div className="w-full">
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-[1.1]">
             <motion.span style={{ x: leftX }} className="inline-block">
-              KissanAI के साथ हिंदी में बोलकर
+              Kissan के साथ हिंदी में बोलकर
             </motion.span>
             <br className="hidden sm:block" />
             <motion.span style={{ x: rightX }} className="inline-block text-primary">
