@@ -50,14 +50,17 @@ export default function ComparisonSlider() {
     setPos(next);
   };
 
+  const supportsAudioRecording = typeof window !== "undefined" && typeof (window as any).MediaRecorder !== "undefined" && !!navigator.mediaDevices?.getUserMedia;
+
   const startRecording = async () => {
+    if (!supportsAudioRecording) return;
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
-      const recorder = new MediaRecorder(stream);
-      mediaRecorderRef.current = recorder;
+      const recorder = new (window as any).MediaRecorder(stream);
+      mediaRecorderRef.current = recorder as any;
       const chunks: BlobPart[] = [];
-      recorder.ondataavailable = (e) => chunks.push(e.data);
+      recorder.ondataavailable = (e: BlobEvent) => chunks.push(e.data);
       recorder.onstop = () => {
         const blob = new Blob(chunks, { type: "audio/webm" });
         setAudioUrl(URL.createObjectURL(blob));
@@ -65,7 +68,7 @@ export default function ComparisonSlider() {
       recorder.start();
       setRecording(true);
     } catch (e) {
-      alert("माइक्रोफोन की अनुमति आवश्यक है।");
+      alert("माइक्रोफोन अनुमति नहीं मिली या उपलब्ध नहीं है। कृपया ब्राउज़र सेटिंग जाँचें।");
     }
   };
 
@@ -126,8 +129,8 @@ export default function ComparisonSlider() {
                 <h3 className="mt-3 text-2xl font-bold">बोलकर पूछें</h3>
                 <ul className="mt-2 space-y-1 text-white/90 text-sm sm:text-base">
                   <li>• आज का मौसम कैसा है?</li>
-                  <li>• गेहूं का भा��� क्या है?</li>
-                  <li>• खाद कब डालना चाहिए?</li>
+                  <li>• गेहूं का भाव क्या है?</li>
+                  <li>• खाद कब ड��लना चाहिए?</li>
                 </ul>
               </div>
             </div>
@@ -150,7 +153,7 @@ export default function ComparisonSlider() {
               </button>
               <h3 className="mt-3 text-2xl font-bold">तस्वीर भेजें</h3>
               <ul className="mt-2 space-y-1 text-white/90 text-sm sm:text-base">
-                <li>• पत्तियों की फोटो खींचे</li>
+                <li>• पत्तियों की फोटो ख���ंचे</li>
                 <li>• तुरंत बीमारी की पहचान</li>
                 <li>• इलाज के तरीके जानें</li>
               </ul>
