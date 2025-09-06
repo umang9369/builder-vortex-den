@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import { handleChat } from "./routes/chat";
 
 export function createServer() {
   const app = express();
@@ -20,7 +21,7 @@ export function createServer() {
   app.get("/api/demo", handleDemo);
 
   // Simple AI chat endpoint
-  app.post("/api/chat", (await import("./routes/chat")).handleChat);
+  app.post("/api/chat", handleChat);
 
   return app;
 }
